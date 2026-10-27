@@ -245,12 +245,20 @@ class Genre:
             artist: artist or group being added
             
         Exceptions:
-            raises ValueError if whats being added isnt an artist"""
+            raises TypeError if whats being added isnt an artist"""
+        
         if not isinstance(artist, Artist):
             raise TypeError("Only artists cna be added")
         self._artists.append(artist)
 
     def add_mood(self,mood):
+        """Adds a mood to genre
+        
+        Arguments:
+            mood: Mood being added
+
+        Exceptions:
+            raises TypeError if whats being added isnt a mood"""
         if not isinstance(mood,Mood):
             raise TypeError("Only moods can be added")
         self._moods.append(mood)
@@ -258,10 +266,20 @@ class Genre:
 
 
 class GenreList:
+    """List of genres by name"""
+
     def __init__(self):
         self._genres = {}
 
     def add_genre(self, genre):
+        """adds genre to list
+        
+        Arguments:
+            genre: genre being added
+            
+        Exceptions:
+            raises TypeError if genre isnt a genre
+            raises ValueError if genre is already in list """
         if not isinstance(genre, Genre):
             raise TypeError("Only Genres can be added")
         if genre.name.lower() in self._genres:
@@ -269,6 +287,16 @@ class GenreList:
         self._genres[genre.name.lower()] = genre
 
     def get_genre(self, name):
+        """Returns the genre of given name
+        
+        Arguments:
+            name: Name of genre being found
+            
+        Returns:
+            the genre searched for
+            
+        Exceptions:
+            raises ValueError if no genre with name found or is blank"""
         genre = self._genres.get(check_text(name, "Genre Name").lower())
         if genre is None:
             raise ValueError(f"No genre called '{name}'")
@@ -276,6 +304,7 @@ class GenreList:
 
     @property
     def genres(self):
+        """list of genres in list"""
         return list(self._genres.values())
 
 
