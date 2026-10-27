@@ -1,0 +1,24 @@
+Student Number: 125521049
+
+My goal for the assignment was to create a file using OOP to create classes designated to different segments of music. There are classes for, Instruments, Moods of genres and artists, Genres, a list of genres, Artists, and Artist groups/ bands. I wanted to create a program that would demonstrate music artists and the different categories and attributes each have. An artist will be assigned to its most common genres, instruments, corresponding moods and energy levels. This is distributed to make it easy to see what attributes each artist has.
+
+OOP Principles:
+
+    Encapsulation:
+        Most variables have been protected. This doesnt change anything in the actual machine code level, however it signals to other programmers which variables shouldnt be change, or only 
+        changed with care
+    
+    Inheritance:
+        I have an abundance of inheritance on display in the program. Functions inherit from their class to do various tasks. I also have classes (e.g StringInstrument) that 	inherit from another parent/base class.
+
+    Objects:
+        Plethora of objects created. Entire program runs on them 
+
+    Error Handling:
+        ValueError and TypeError used to error check instances. ValueError used to make sure strings are in fact strings and also not blank aswell as Ints are ints and not 	blank. TypeError used to ensure there are no dupes of anything or ensure that whats being added to whatever it is is in fact the type it should be.
+
+    Commenting:
+        PEP 8 Standard comments throughout
+
+
+I have added some test functions to the end of music.py in order to just pass either Pass or Fail to each part. Pass is what i was hoping for. Everything passes.
