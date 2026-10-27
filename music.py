@@ -1,3 +1,5 @@
+#Student Number: 125521049
+
 from main import (Instruments, StringInstrument, KeyInstrument, Mood, Artist, Artist_Group,
                   Genre, GenreList)
 
@@ -19,7 +21,7 @@ john_coltrane = Artist("John Coltrane")
 john_coltrane.add_instrument(saxophone)
 
 dangelo = Artist("D'Angelo")
-for i in(guitar,bass,drums,saxophone,trumpet):
+for i in (guitar,bass,drums,saxophone,trumpet):
     dangelo.add_instrument(i)
 
 stevie_wonder = Artist("Stevie Wonder")
@@ -81,3 +83,53 @@ for genre in glist.genres:
     for artist in genre.artists:
         print(artist.describe())
     print("Moods:", ", ".join(f"{i.name} ({i.energy}/10)" for i in genre.moods))
+
+
+
+
+#some tests
+if __name__ == "__main__":
+    try:
+        if Instruments("Drums").description() == "Drums, Any":
+            print("Pass: Instrument")
+    except Exception as e:
+        print("Fail", e)
+
+    try:
+        if StringInstrument("Guitar").description() == "Guitar, String":
+            print("Pass: StringInstrument")
+    except Exception as e:
+        print("Fail", e)
+
+    try:
+        mood = Mood("Upbeat", 7)
+        mood.energy = 7
+        if mood.energy == 7:
+            print("Pass: energy setter")
+    except Exception as e:
+        print("Fail", e)
+
+    try:
+        if Artist("Thundercat").describe() == "Thundercat (solo artist)":
+            print("Pass: Artist describe")
+    except Exception as e:
+        print("Fail", e)
+
+    try:
+        group = Artist_Group("Radiohead", ["Thom Yorke", "Jonny Greenwood"])
+        if group.describe() == "Radiohead (Group: Thom Yorke, Jonny Greenwood)":
+            print("Pass: Artist_Group")
+    except Exception as e:
+        print("Fail", e)
+
+    try:
+        Mood("Bad", 11)
+        print("Fail")
+    except ValueError:
+        print("Pass: energy 11 rejected")
+
+    try:
+        Instruments("")
+        print("Fail")
+    except ValueError:
+        print("Pass: blankrejected")
